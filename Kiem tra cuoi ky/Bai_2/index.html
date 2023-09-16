@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span>Chọn màu:</span>
+    <input type="color" id="color" value="#0000ff">
+    <label for="color" id="color-output">#####</label>
+</body>
+<script>
+    const colorPicker = document.querySelector('input');
+    const colorOutput = document.querySelector('label');
+    addEventListener("input", (event) => {
+        colorOutput.innerText = colorPicker.value;
+        navigator.clipboard.writeText(colorPicker.value)
+    }
+    )
+</script>
+
+</html>

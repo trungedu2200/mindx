@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm Số Chính Phương</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .btn {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Tìm Số Chính Phương</h1>
+        <div class="btn">
+            <label>Nhập a:</label>
+            <input type="number" id="inputA" placeholder="Nhập số" required>
+        </div>
+        <div class="btn">
+            <label>Nhập b:</label>
+            <input type="number" id="inputB" placeholder="Nhập số" required>
+        </div>
+        <button class="btn" id="timSoChinhPhuong">Tìm Số Chính Phương</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Kiểm tra số chính phương
+        function kiemTraSoChinhPhuong(num) {
+            return Math.sqrt(num) % 1 === 0;
+        }
+
+        // Tìm số chính phương trong khoảng a và b
+        function timSoChinhPhuong() {
+            const inputA = parseInt(document.getElementById('inputA').value);
+            const inputB = parseInt(document.getElementById('inputB').value);
+
+            let result = 'Các số chính phương trong khoảng từ ' + inputA + ' đến ' + inputB + ': ';
+
+            for (let i = inputA; i <= inputB; i++) {
+                if (kiemTraSoChinhPhuong(i)) {
+                    result += i + ' ';
+                }
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+
+        document.getElementById('timSoChinhPhuong').addEventListener('click', timSoChinhPhuong);
+    </script>
+</body>
+
+</html>
